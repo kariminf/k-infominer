@@ -1,4 +1,5 @@
 *.class
+.directory
 
 # Package Files #
 *.war
