@@ -1,4 +1,4 @@
-package aak.sqlite;
+package dz.aak.sqlite;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

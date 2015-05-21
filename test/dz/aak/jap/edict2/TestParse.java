@@ -18,70 +18,56 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package test;
+package dz.aak.jap.edict2;
 import java.util.ArrayList;
 
-import aak.jap.Edict2.Parser;
-import aak.jap.Edict2.lex.*;
+import dz.aak.jap.edict2.Parser;
+import dz.aak.jap.edict2.lex.*;
 
-class XMLinConsole {
+class TestParse {
 
 
 	public static void main(String[] args) {
 		
 		LINE parsedline = Parser.ParseLINE("閉まる(P);締まる(P);緊まる [しまる(P)] /(v5r,vi) (1) (esp. 閉まる) to be shut/to close/to be closed/(v5r,vi)(2) to be locked/(3) to tighten/to be tightened/(4) to become sober/to become tense/(P)/EntL1436560X/");
-		
+		//LINE parsedline = Parser.ParseLINE("て /(aux) (で after certain verb forms) (See で・5) indicates continuing action/EntL2654270/");
 		String[] kanjis = parsedline.getKanjiList();
 		String[] kanjistype = parsedline.getKanjiTypeList();
 		String[] kanas = parsedline.getKanaList();
 		String[] kanastype = parsedline.getKanaTypeList();
 		
-		System.out.print("<kanjis>\n");
-		
+		System.out.print("The kanji:\n-----------\n");
+		if (kanjis.length==0) System.out.print("no kanjis\n");
 		for (int i=0;i<kanjis.length;i++){
-			System.out.print("	<kanji>\n");
-			System.out.print("		<kanjiword>"+kanjis[i]+"</kanjiword>\n");
-			System.out.print("		<kanjitype>"+kanjistype[i]+"</kanjitype>\n");
-			System.out.print("	</kanji>\n");
+			System.out.print(kanjis[i] + " : "+kanjistype[i]+ "\n");
 		}
 			
-		System.out.print("</kanjis>\n");
-		System.out.print("<kanas>\n");
 		
-		for (int i=0;i<kanas.length;i++){
-			System.out.print("	<kana>\n");
-			System.out.print("		<kanaword>"+kanas[i]+"</kanaword>\n");
-			System.out.print("		<kanatype>"+kanastype[i]+"</kanatype>\n");
-			System.out.print("	</kana>\n");
-		}
+		System.out.print("The kana:\n-----------\n");
 		
-		System.out.print("</kanas>\n");
-		System.out.print("<common>"+ parsedline.getCommonWord() +"</common>\n");
-		System.out.print("<seq>"+ parsedline.getSeqNum() +"</seq>\n");
-
+		for (int i=0;i<kanas.length;i++)
+			System.out.print(kanas[i] + " : "+kanastype[i]+ "\n");
+		
+		System.out.print("Information:\n===================================\n");
+		System.out.print("Has audio at japanesepod101?:"+ parsedline.getAudioDisponiblity() +"\n");
+		System.out.print("Is it common word?:"+ parsedline.getCommonWord() +"\n");
+		System.out.print("The sequence number of it:"+ parsedline.getSeqNum() +"\n");
+		
+		System.out.print("The meanings:\n===================================\n");
 		ArrayList<MEANS> allmeans = parsedline.getAllMeanings();
-		System.out.print("<sences>\n");
 		for (int i=0;i<allmeans.size();i++){
-			System.out.print("	<sence>\n");
-			System.out.print("		<pos>" + allmeans.get(i).pos+"</pos>\n");
-			System.out.print("		<gloss>\n");
+			System.out.print(i + ":" + allmeans.get(i).pos +"\n");
 			ArrayList<GLOSS> glossaries = allmeans.get(i).getAllGlossaries();
 			
 			for(int j=0;j<glossaries.size();j++){
-				System.out.print("			<mean>\n");
-				System.out.print("				<inf>" + glossaries.get(j).information + "</inf>\n");
-				System.out.print("				<words>\n");
+				System.out.print(i + "-" +j + ":" + glossaries.get(j).information + "\n");
 				ArrayList<String> meanings = glossaries.get(j).getAllMeanings();
 				for (int k=0;k<meanings.size();k++){
-					System.out.print("					<word>" + meanings.get(k)+"</word>\n");
+					System.out.print(i + "-" + j + "-" + k +  ":" + meanings.get(k)+"\n");
 				}
-				System.out.print("				</words>\n");
-				System.out.print("			</mean>\n");
 			}
-			System.out.print("		</gloss>\n");
-			System.out.print("	</sence>\n");
+			
 		}
-		System.out.print("</sences>\n");
 	}
 	
 }

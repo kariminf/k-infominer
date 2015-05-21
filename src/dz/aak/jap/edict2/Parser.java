@@ -18,12 +18,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package aak.jap.Edict2;
+package dz.aak.jap.edict2;
 
 
 import java.util.regex.Pattern;
 
-import aak.jap.Edict2.lex.*;
+import dz.aak.jap.edict2.lex.*;
 
 
 

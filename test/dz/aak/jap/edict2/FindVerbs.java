@@ -1,4 +1,4 @@
-package test;
+package dz.aak.jap.edict2;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

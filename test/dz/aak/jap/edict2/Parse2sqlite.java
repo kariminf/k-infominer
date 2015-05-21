@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package test;
+package dz.aak.jap.edict2;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -33,9 +33,9 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import aak.jap.Edict2.Parser;
-import aak.jap.Edict2.lex.LINE;
-import aak.jap.Edict2.lex.MEANS;
+import dz.aak.jap.edict2.Parser;
+import dz.aak.jap.edict2.lex.LINE;
+import dz.aak.jap.edict2.lex.MEANS;
 
 public class Parse2sqlite {
 	private static Connection con;

@@ -18,7 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package aak.jap.Edict2.lex;
+package dz.aak.jap.edict2.lex;
+
 import java.util.ArrayList;
 
 public class MEANS {
