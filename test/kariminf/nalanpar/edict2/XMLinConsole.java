@@ -18,11 +18,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package dz.aak.jap.edict2;
+package kariminf.nalanpar.edict2;
 import java.util.ArrayList;
 
-import dz.aak.jap.edict2.Parser;
-import dz.aak.jap.edict2.lex.*;
+import kariminf.nalanpar.edict2.Parser;
+import kariminf.nalanpar.edict2.lex.*;
+
 
 class XMLinConsole {
 

@@ -1,4 +1,4 @@
-package dz.aak.sqlite;
+package kariminf.nalanpar.sqlite;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

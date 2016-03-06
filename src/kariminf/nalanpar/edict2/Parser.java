@@ -18,12 +18,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package dz.aak.jap.edict2;
+package kariminf.nalanpar.edict2;
 
 
 import java.util.regex.Pattern;
 
-import dz.aak.jap.edict2.lex.*;
+import kariminf.nalanpar.edict2.lex.*;
+
 
 
 

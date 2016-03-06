@@ -1,4 +1,4 @@
-package dz.aak.jap.edict2;
+package kariminf.nalanpar.edict2;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

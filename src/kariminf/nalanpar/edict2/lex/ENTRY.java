@@ -18,56 +18,51 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package dz.aak.jap.edict2.lex;
+package kariminf.nalanpar.edict2.lex;
 
 import java.util.ArrayList;
 
-public class INFO {
+public class ENTRY {
+	private ArrayList<WORD> kanjis;
+	private ArrayList<WORD> kanas;
+	
+	public ENTRY(){
+		kanjis = new ArrayList<WORD>();
+		kanas = new ArrayList<WORD>();
+	}
+	
+	public void addKana(WORD _kana){
+		kanas.add(_kana);
+	}
+	
+	public void addKana(WORD[] _kanaList){
+		for (int i=0; i<_kanaList.length; i++)
+			kanas.add(_kanaList[i]);
+			
+	}
+	
+	public void addKanji(WORD _kanji){
+		kanjis.add(_kanji);
+	}
+	
+	public void addKanji(WORD[] _kanjiList){
+		for (int i=0; i<_kanjiList.length; i++)
+			kanjis.add(_kanjiList[i]);
+	}
 
-	private int sequenceNumber;
-	private boolean hasAudioReading;
-	private boolean isCommonWord;
-	private ArrayList<MEANS> meanings;
+	
+	public WORD[] getKana(){
+		WORD[] result = new WORD[kanas.size()];
+		for(int i=0;i<kanas.size();i++)
+			result[i] = kanas.get(i);
+		return result;
+	}
 
 	
-	
-	public INFO(){
-		sequenceNumber=0;
-		hasAudioReading=false;
-		isCommonWord=false;
-		meanings = new ArrayList<MEANS>();
+	public WORD[] getKanji(){
+		WORD[] result = new WORD[kanjis.size()];
+		for(int i=0;i<kanjis.size();i++)
+			result[i] = kanjis.get(i);
+		return result;
 	}
-	
-	public void setSeqNum(int seqNum){
-		sequenceNumber = seqNum;
-	}
-	
-	public void addMeaning(MEANS _meaning/*, String type*/){
-		meanings.add(_meaning);
-	}
-	
-	public void setAudioDisponiblity(boolean disponible){
-		hasAudioReading= disponible;
-	}
-	
-	public void setCommonWord(boolean iscommon){
-		isCommonWord = iscommon;
-	}
-	
-	public int getSeqNum(){
-		return sequenceNumber;
-	}
-	
-	public boolean getAudioDisponiblity(){
-		return hasAudioReading;
-	}
-	
-	public boolean getCommonWord(){
-		return isCommonWord;
-	}
-	
-	public ArrayList<MEANS> getAllMeanings(){
-		return meanings;
-	}
-	
 }
