@@ -18,30 +18,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package kariminf.nalanpar.edict2.lex;
+package kariminf.kinfominer.edict2.lex;
 
 import java.util.ArrayList;
 
-public class MEANS {
-	public String pos;//part of speach markings
-	private boolean thereIsElements=false;
-	private ArrayList<GLOSS> glossaries;
+public class GLOSS {
+	public String information;
+	private ArrayList<String> meanings;
 	
-	public MEANS (){
-		glossaries = new ArrayList<GLOSS>();
+	public GLOSS(){
+		meanings = new ArrayList<String>();
 	}
 	
-	public void addGlossary(GLOSS glossary){
-		glossaries.add(glossary);
-		thereIsElements=true;
+	public void addMeaning(String meaning){
+		meanings.add(meaning);
 	}
 	
-	public ArrayList<GLOSS> getAllGlossaries(){
-		return glossaries;
+	public ArrayList<String> getAllMeanings(){
+		return meanings;
 	}
-	
-	public boolean hasElements(){
-		return thereIsElements;
-	}
-	
 }

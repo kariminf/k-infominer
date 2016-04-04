@@ -18,12 +18,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package kariminf.nalanpar.edict2;
+package kariminf.kinfominer.edict2;
 
 
 import java.util.regex.Pattern;
 
-import kariminf.nalanpar.edict2.lex.*;
+import kariminf.kinfominer.edict2.lex.*;
 
 
 

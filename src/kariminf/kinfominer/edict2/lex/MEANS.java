@@ -18,9 +18,30 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package kariminf.nalanpar.edict2.lex;
+package kariminf.kinfominer.edict2.lex;
 
-public class WORD {
-	public String word="";
-	public String type="";
+import java.util.ArrayList;
+
+public class MEANS {
+	public String pos;//part of speach markings
+	private boolean thereIsElements=false;
+	private ArrayList<GLOSS> glossaries;
+	
+	public MEANS (){
+		glossaries = new ArrayList<GLOSS>();
+	}
+	
+	public void addGlossary(GLOSS glossary){
+		glossaries.add(glossary);
+		thereIsElements=true;
+	}
+	
+	public ArrayList<GLOSS> getAllGlossaries(){
+		return glossaries;
+	}
+	
+	public boolean hasElements(){
+		return thereIsElements;
+	}
+	
 }

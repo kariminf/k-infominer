@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package kariminf.nalanpar.edict2.lex;
+package kariminf.kinfominer.edict2.lex;
 
 import java.util.ArrayList;
 

@@ -18,23 +18,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package kariminf.nalanpar.edict2.lex;
+package kariminf.kinfominer.edict2.lex;
 
-import java.util.ArrayList;
-
-public class GLOSS {
-	public String information;
-	private ArrayList<String> meanings;
-	
-	public GLOSS(){
-		meanings = new ArrayList<String>();
-	}
-	
-	public void addMeaning(String meaning){
-		meanings.add(meaning);
-	}
-	
-	public ArrayList<String> getAllMeanings(){
-		return meanings;
-	}
+public class WORD {
+	public String word="";
+	public String type="";
 }

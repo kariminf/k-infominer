@@ -1,4 +1,4 @@
-package kariminf.nalanpar.sqlite;
+package kariminf.kinfominer.sqlite;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

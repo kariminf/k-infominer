@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package kariminf.nalanpar.edict2;
+package kariminf.kinfominer.edict2;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -33,16 +33,13 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import kariminf.nalanpar.edict2.Parser;
-import kariminf.nalanpar.edict2.lex.LINE;
-import kariminf.nalanpar.edict2.lex.MEANS;
+import kariminf.kinfominer.edict2.Parser;
+import kariminf.kinfominer.edict2.lex.LINE;
+import kariminf.kinfominer.edict2.lex.MEANS;
 
 
-public class Parse2sqlite2 {
-	
+public class Parse2sqlite {
 	private static Connection con;
-	
-	private final String workplace = "/home/kariminf/Data/jap/";
 	
 	private final String verbstype = "v1|v2a-s|v4h|v4r|v5aru|v5b|v5g|v5k-s|v5k|v5m" +
 			"|v5n|v5r-i|v5r|v5s|v5t|v5u-s|v5uru|v5u|v5z|v5|vz|vk|vn|vs-c|vs-i|vs-s|vs";
@@ -107,7 +104,7 @@ public class Parse2sqlite2 {
 		ResultSet res;
 		
 		//String NL = System.getProperty("line.separator");
-	    Scanner scanner = new Scanner(new FileInputStream(workplace + "edict2u"), "UTF-8");
+	    Scanner scanner = new Scanner(new FileInputStream("edict2u"), "UTF-8");
 	    int numkana = 1;
 	    int numkanji = 1;
 	    
@@ -127,6 +124,9 @@ public class Parse2sqlite2 {
 		    		String[] kanas = parsedline.getKanaList();
 		    		String add = "";
 		    		
+		    		//ArrayList<MEANS> allmeans = parsedline.getAllMeanings();
+		    		
+		    		//for(MEANS mean: allmeans)
 		    		String thetype = m.group(1);
 		    		int ntype = 0;
 		    		
@@ -135,10 +135,11 @@ public class Parse2sqlite2 {
 		    		
 		    		if (ntype==24)
 		    			add = "する";
+		    		//ckanji = new ArrayList<String>();
+		    		//ckana = new ArrayList<String>();
 		    		 		
 		    		PreparedStatement prep = con
 		    				.prepareStatement("insert into tkanji values(?,?,?);");
-		    		
 		    		for(String kanji:kanjis)
 		    		{
 		    			res = stat.executeQuery("select idkanji from tkanji where kanji ='" 
@@ -188,27 +189,8 @@ public class Parse2sqlite2 {
 		    			
 		    		}
 		    		
-		    		prep = con
-		    				.prepareStatement("insert into tread values(?,?);");
-		    		
-		    		for(String kanji:kanjis){
-		    			res = stat.executeQuery("select idkanji from tkanji where kanji ='" 
-		    					+ kanji + add + "';");
-		    			int kanjiid = 0;
-		    			if (res.next()) kanjiid = res.getInt(1);
-		    			
-		    			for(String kana:kanas){
-		    				res = stat.executeQuery("select idkana from tkana where kana ='" 
-			    					+ kana + add + "';");
-			    			int kanaid = 0;
-			    			if (res.next()) kanaid = res.getInt(1);
-			    			
-			    			prep.setInt(1, kanjiid);
-		    				prep.setInt(2, kanaid);
-		    				prep.execute();
-		    				System.out.println("kanji:"+ kanjiid + " = kana:" + kanaid);
-			    		}
-		    		}
+		    		/*prep = con
+		    				.prepareStatement("insert into tkana values(?,?);");*/
 		    		
 		      	}
 
@@ -223,11 +205,11 @@ public class Parse2sqlite2 {
 	public void create() throws Exception {
 
 		  Class.forName("org.sqlite.JDBC");
-		  con = DriverManager.getConnection("jdbc:sqlite:" + workplace + "edict2verbs.db");
+		  con = DriverManager.getConnection("jdbc:sqlite:edict2verbs.db");
 		  Statement stat = con.createStatement();
 		  stat.executeUpdate("drop table if exists tkanji");
 		  stat.executeUpdate("drop table if exists tkana");
-		  stat.executeUpdate("drop table if exists tread");
+		  //stat.executeUpdate("drop table if exists tread");
 		  stat.executeUpdate("drop table if exists ttype");
 
 		  //creating table kanji
@@ -242,10 +224,10 @@ public class Parse2sqlite2 {
 		  stat.executeUpdate("create unique index idx_tkana "
 				    + "on tkana (kana asc);");
 		  
-		  
+		  /*
 		//creating table reading
-		  stat.executeUpdate("create table tread(idkanji integer,"
-		    + "idkana integer);");
+		  stat.executeUpdate("create table tread(idkana integer,"
+		    + "idkanji integer);");*/
 	
 		//creating table type
 		  stat.executeUpdate("create table ttype(idtype integer,"
@@ -270,13 +252,12 @@ public class Parse2sqlite2 {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Parse2sqlite2 p2sqlite = new Parse2sqlite2();
+		Parse2sqlite p2sqlite = new Parse2sqlite();
 		
 		try {
 		      p2sqlite.create();
 		      p2sqlite.insert_type();
 		      p2sqlite.insert_verbs();
-		      con.close();
 		    } catch (Exception e) {
 		       e.printStackTrace();
 		    }
