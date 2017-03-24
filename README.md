@@ -1,7 +1,7 @@
 # KInfoMiner
 
-[![Project](https://img.shields.io/badge/Project-KInfoMiner-4B0082.svg?style=plastic)](http://ararud.sourceforge.net)
-[![Version](https://img.shields.io/badge/Version-1.0.0-4B0082.svg?style=plastic)](https://github.com/kariminf/ArArud/releases)
+[![Project](https://img.shields.io/badge/Project-KInfoMiner-4B0082.svg?style=plastic)](https://github.com/kariminf/KInfoMiner)
+[![Version](https://img.shields.io/badge/Version-1.0.0-4B0082.svg?style=plastic)](https://github.com/kariminf/KInfoMiner/releases)
 [![License](https://img.shields.io/badge/License-Apache_2-4B0082.svg?style=plastic)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Travis](https://img.shields.io/travis/kariminf/KInfoMiner.svg?style=plastic)](https://travis-ci.org/kariminf/KInfoMiner)
 
