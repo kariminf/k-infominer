@@ -1,11 +1,11 @@
-# KInfoMiner
+# K-InfoMiner
 
-[![Project](https://img.shields.io/badge/Project-KInfoMiner-4B0082.svg)](https://github.com/kariminf/KInfoMiner)
-[![Version](https://img.shields.io/badge/Version-1.0.0-4B0082.svg)](https://github.com/kariminf/KInfoMiner/releases)
+[![Project](https://img.shields.io/badge/Project-k--infominer-4B0082.svg)](https://github.com/kariminf/k-infominer)
+[![Version](https://img.shields.io/badge/Version-1.0.0-4B0082.svg)](https://github.com/kariminf/k-infominer/releases)
 [![License](https://img.shields.io/badge/License-Apache_2-4B0082.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Travis](https://img.shields.io/travis/kariminf/KInfoMiner.svg)](https://travis-ci.org/kariminf/KInfoMiner)
-[![codecov](https://img.shields.io/codecov/c/github/kariminf/KInfoMiner.svg)](https://codecov.io/gh/kariminf/KInfoMiner)
-[![jitpack](https://jitpack.io/v/kariminf/KInfoMiner.svg)](https://jitpack.io/#kariminf/KInfoMiner)
+[![Travis](https://img.shields.io/travis/kariminf/k-infominer.svg)](https://travis-ci.org/kariminf/k-infominer)
+[![codecov](https://img.shields.io/codecov/c/github/kariminf/k-infominer.svg)](https://codecov.io/gh/kariminf/k-infominer)
+[![jitpack](https://jitpack.io/v/kariminf/k-infominer.svg)](https://jitpack.io/#kariminf/k-infominer)
 
 **Kariminf Infomation Miner**
 
@@ -30,7 +30,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.kariminf:KInfoMiner:tag'
+    compile 'com.github.kariminf:k-infominer:tag'
 }
 ```
 
@@ -46,7 +46,7 @@ dependencies {
 
 <dependency>
 	    <groupId>com.github.kariminf</groupId>
-	    <artifactId>KInfoMiner</artifactId>
+	    <artifactId>k-infominer</artifactId>
 	    <version>tag</version>
 </dependency>
 ```
